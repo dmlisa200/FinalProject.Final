@@ -1,7 +1,7 @@
 """
 program Life Insurance Calculator.py
 author:  Lisa Kilmer
-last modified: 7/23/2020
+last modified: 7/31/2020
 This is a Life Insurance Calculator that helps the client determine how much more life insurance they need to protect
 their family if they die.  It considers annual income that family needs and subtracts other income the family has like
 other spouse income or interest and dividends or social security.  Takes that amount and calculates how much capital
@@ -9,7 +9,9 @@ there needs to be if invested at 5% return to generate the amount needed.  It do
 expenses, college costs for children if they want and debt that would want paid off if they died.  totals all the assets
 nonqualified and qualified and the present amount of life insurance.  Subtracts need from assets to determine additional
 life insurance needed if any. I added the datetime so prints the date at top of the GUI and the reset button so it will
-restart the program without having to close the GUI and start again.
+restart the program without having to close the GUI and start again.  Validates entries to make sure they are integers.
+College costs are input through a popup window that enters how many children and then takes college costs for each
+child in a popup window. all the amounts print to the textbox for totals and end insurance need.
 """
 
 import tkinter as tk
@@ -96,7 +98,7 @@ class Calculator(ttk.Frame):
                   textvariable=self.present_amount).grid(row=8, column=1, sticky=W)
         Button(self, text="Submit", command=self.assets).grid(row=8, column=3, sticky=E)
 
-        Button(self, text="reset", command=self.restart_program).grid(row=9, column=2, sticky=E)
+        Button(self, text="reset", command=self.restart_program).grid(row=9, column=2, sticky=E) #restarts program
 
     def validate_number(self, newvalue):
         return newvalue.isdigit()
